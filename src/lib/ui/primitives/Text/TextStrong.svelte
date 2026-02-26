@@ -1,0 +1,31 @@
+<script lang="ts">
+  import { clsx } from 'clsx';
+  import type { Snippet } from 'svelte';
+  import './text.css';
+
+  let {
+    children,
+    class: className,
+    elementType = 'strong',
+    lineClamp,
+    ...rest
+  }: {
+    children?: Snippet;
+    class?: string;
+    elementType?: string;
+    lineClamp?: number;
+    [key: string]: any;
+  } = $props();
+
+  let classNames = $derived(clsx(
+    className,
+    !!lineClamp && 'text-truncate',
+    'text-body-strong',
+  ));
+
+  let style = $derived(lineClamp ? `--text-truncate-line-clamp: ${lineClamp}` : undefined);
+</script>
+
+<svelte:element this={elementType} class={classNames} {style} {...rest}>
+  {@render children?.()}
+</svelte:element>
