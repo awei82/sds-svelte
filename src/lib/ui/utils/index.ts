@@ -1,1 +1,1 @@
-export * from "./AnchorOrButton";
+export { default as AnchorOrButton } from './AnchorOrButton.svelte';
