@@ -1,21 +1,19 @@
-import react from "@vitejs/plugin-react";
-import path from "path";
-import { defineConfig } from "vite";
+import { sveltekit } from '@sveltejs/kit/vite';
+import path from 'path';
+import { defineConfig } from 'vite';
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  base: "./",
-  plugins: [react()],
+  plugins: [sveltekit()],
   resolve: {
     alias: {
-      compositions: path.resolve(__dirname, "./src/ui/compositions"),
-      data: path.resolve(__dirname, "./src/data"),
-      hooks: path.resolve(__dirname, "./src/ui/hooks"),
-      icons: path.resolve(__dirname, "./src/ui/icons"),
-      images: path.resolve(__dirname, "./src/ui/images"),
-      layout: path.resolve(__dirname, "./src/ui/layout"),
-      primitives: path.resolve(__dirname, "./src/ui/primitives"),
-      utils: path.resolve(__dirname, "./src/ui/utils"),
+      compositions: path.resolve(__dirname, './src/lib/ui/compositions'),
+      data: path.resolve(__dirname, './src/lib/data'),
+      hooks: path.resolve(__dirname, './src/lib/ui/hooks'),
+      icons: path.resolve(__dirname, './src/lib/ui/icons'),
+      images: path.resolve(__dirname, './src/lib/ui/images'),
+      layout: path.resolve(__dirname, './src/lib/ui/layout'),
+      primitives: path.resolve(__dirname, './src/lib/ui/primitives'),
+      utils: path.resolve(__dirname, './src/lib/ui/utils'),
     },
   },
   server: {
